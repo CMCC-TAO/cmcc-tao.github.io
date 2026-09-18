@@ -1,5 +1,5 @@
 ---
-import { boards } from '../data/site';
+import { boards, paper, site } from '../data/site';
 ---
 
 <section id="main-work" class="section">
@@ -55,16 +55,30 @@ import { boards } from '../data/site';
                 </div>
 
                 <div class="mt-5 flex flex-wrap gap-3">
-                  {p.links.map((l) => (
-                    <a
-                      class="btn-ghost px-4 py-2 text-xs"
-                      href={l.href}
-                      target="_blank"
-                      rel="noopener"
-                    >
-                      {l.label} →
-                    </a>
-                  ))}
+                  <a
+                    class="btn-ghost px-4 py-2 text-xs"
+                    href={p.github ?? site.github}
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    GitHub →
+                  </a>
+                  <a
+                    class="btn-ghost px-4 py-2 text-xs"
+                    href={p.paper ?? paper}
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Paper →
+                  </a>
+                  <a
+                    class="btn-ghost px-4 py-2 text-xs"
+                    href={p.homepage ?? site.site}
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Homepage →
+                  </a>
                 </div>
               </article>
             ))}

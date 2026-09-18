@@ -3,11 +3,6 @@ export interface Highlight {
   label: string;
 }
 
-export interface ProjectLink {
-  label: string;
-  href: string;
-}
-
 export interface Project {
   slug: string;
   name: string;
@@ -18,7 +13,12 @@ export interface Project {
   tagline: string;
   desc: string;
   tags: string[];
-  links: ProjectLink[];
+  /** GitHub repository (falls back to site.github when omitted) */
+  github?: string;
+  /** arXiv / paper link (falls back to the team paper when omitted) */
+  paper?: string;
+  /** Project homepage (falls back to site.site when omitted) */
+  homepage?: string;
   highlights?: Highlight[];
 }
 
@@ -44,10 +44,14 @@ export const site = {
   site: 'https://cmcc-tao.github.io',
 };
 
+/** Default paper link used by cards that do not specify their own. */
+export const paper = 'https://arxiv.org/abs/2512.24673';
+
 /**
  * "Main Work" is organized into three boards. Each board renders a grid of
  * project cards. To add a card, append to the `items` array of a board —
- * no other code change is needed.
+ * no other code change is needed. Every card shows GitHub / Paper / Homepage
+ * links (with sensible fallbacks when a field is omitted).
  */
 export const boards: Board[] = [
   {
@@ -64,10 +68,9 @@ export const boards: Board[] = [
         tagline: 'Real-Time Asynchronous Inference Linker',
         desc: 'A plug-and-play open-source middleware that bridges VLA/WAM models and heterogeneous robots via two-stage trajectory smoothing and closed-loop evolution. It decouples low-rate inference from high-frequency control for jitter-free, faster-than-teleop execution.',
         tags: ['Asynchronous Pipeline', 'Trajectory Smoothing', '20+ Models', '4 Robots'],
-        links: [
-          { label: 'GitHub', href: 'https://github.com/CMCC-TAO/open-rail' },
-          { label: 'Homepage', href: 'https://cmcc-tao.github.io/open-rail/' },
-        ],
+        github: 'https://github.com/CMCC-TAO/open-rail',
+        paper: 'https://arxiv.org/abs/2512.24673',
+        homepage: 'https://cmcc-tao.github.io/open-rail/',
         highlights: [
           { value: '2.09×', label: 'Max execution speedup' },
           { value: '0.95', label: 'Peak task success rate' },
@@ -81,7 +84,6 @@ export const boards: Board[] = [
         tagline: 'Templates & Contribution Portal',
         desc: 'Model templates, robot templates, evaluation templates, and end-edge-cloud deployment examples — everything you need to plug your model or robot into the TAO ecosystem.',
         tags: ['Templates', 'Deployment', 'Contribute'],
-        links: [{ label: 'GitHub', href: 'https://github.com/CMCC-TAO' }],
       },
     ],
   },
@@ -99,7 +101,6 @@ export const boards: Board[] = [
         tagline: 'Bimanual Manipulation Policy',
         desc: 'A dual-arm coordination policy for complex humanoid manipulation, fusing both arms with whole-body balance for long-horizon, contact-rich tasks.',
         tags: ['Bimanual', 'Humanoid', 'Coordination'],
-        links: [{ label: 'GitHub', href: 'https://github.com/CMCC-TAO' }],
       },
       {
         slug: 'force',
@@ -109,7 +110,6 @@ export const boards: Board[] = [
         tagline: 'Compliant Force Interaction',
         desc: 'A compliant force-interaction model that predicts and regulates contact forces for delicate, physically-safe manipulation under uncertainty.',
         tags: ['Compliance', 'Contact-Rich', 'Safety'],
-        links: [{ label: 'GitHub', href: 'https://github.com/CMCC-TAO' }],
       },
       {
         slug: 'visiotactile',
@@ -119,7 +119,6 @@ export const boards: Board[] = [
         tagline: 'Touch-Aware Perception & Action',
         desc: 'A vision-tactile model that fuses camera and tactile sensing for fine-grained material, slip, and grasp-state awareness beyond what vision alone can see.',
         tags: ['Tactile', 'Multimodal', 'Grasp'],
-        links: [{ label: 'GitHub', href: 'https://github.com/CMCC-TAO' }],
       },
       {
         slug: 'tao',
@@ -129,7 +128,9 @@ export const boards: Board[] = [
         tagline: 'Embodied VLA Foundation Model',
         desc: "China Mobile's open embodied Vision-Language-Action base model for humanoid manipulation. Trained on large-scale real-robot and teleop data, TAO provides a strong, adaptable policy backbone for diverse manipulation tasks.",
         tags: ['VLA', 'Humanoid', 'Open Weights', 'G1 / AgiBot G1'],
-        links: [{ label: 'GitHub', href: 'https://github.com/CMCC-TAO/open-rail' }],
+        github: 'https://github.com/CMCC-TAO/open-rail',
+        paper: 'https://arxiv.org/abs/2512.24673',
+        homepage: 'https://cmcc-tao.github.io/open-rail/',
         highlights: [
           { value: '20+', label: 'Models powered via Open-RAIL' },
           { value: 'VLA', label: 'Native action output' },
@@ -151,7 +152,9 @@ export const boards: Board[] = [
         tagline: 'Embodied Manipulation Benchmark',
         desc: 'A standardized evaluation benchmark and scoring suite for embodied manipulation. It defines task protocols, metrics, and LeRobot-format logging so results are reproducible and comparable across models and robots.',
         tags: ['Scoring', 'Metrics', 'Reproducible', 'LeRobot'],
-        links: [{ label: 'GitHub', href: 'https://github.com/CMCC-TAO' }],
+        github: 'https://github.com/CMCC-TAO',
+        paper: 'https://arxiv.org/abs/2512.24673',
+        homepage: 'https://cmcc-tao.github.io/',
         highlights: [
           { value: 'JSON/CSV', label: 'Exportable reports' },
           { value: 'E2E', label: 'Evaluate & record' },
@@ -183,4 +186,4 @@ export const team = {
     { role: 'Product Managers', members: ['Jiahui Zheng', 'Chaohua Lin', 'Yafei Peng'] },
   ],
   contactNote: 'Partnership inquiries, technical proposals, and community contributions are welcome.',
-}
+};
