@@ -31,9 +31,9 @@ export interface Board {
 }
 
 export const site = {
-  name: 'CMCC-TAO',
-  eyebrow: 'China Mobile · Embodied Intelligence',
-  titleHighlight: ' Embodied AI Team',
+  name: 'TAO',
+  eyebrow: 'China Mobile · Embodied Model Team',
+  titleHighlight: ' Towards Autonomous Operation',
   tagline: 'From embodied base models to real-world robot deployment.',
   heroDesc:
     'We are the Embodied Model Team (TAO Team) at the China Mobile Embodied Intelligence Industry Innovation Center. We build open-source infrastructure, base models, and benchmarks that connect VLA/WAM models with physical robots.',
