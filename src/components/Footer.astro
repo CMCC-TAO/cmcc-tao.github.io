@@ -1,0 +1,16 @@
+---
+import { site } from '../data/site';
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-ink-border py-8">
+  <div
+    class="container-wide flex flex-col items-center justify-between gap-3 text-sm text-slate-500 sm:flex-row"
+  >
+    <p>© {year} {site.org}. All Rights Reserved.</p>
+    <div class="flex gap-4">
+      <a class="hover:text-brand-light" href={site.github} target="_blank" rel="noopener">GitHub</a>
+      <a class="hover:text-brand-light" href={site.github} target="_blank" rel="noopener">TAO Team</a>
+    </div>
+  </div>
+</footer>
