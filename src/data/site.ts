@@ -167,23 +167,5 @@ export const boards: Board[] = [
 export const team = {
   intro:
     'The TAO Team brings together researchers and engineers across model algorithm, robot control, and system deployment. We are committed to open-sourcing the proven model-to-robot engineering pipeline so the community can focus on innovation instead of rebuilding deployment plumbing.',
-  groups: [
-    { role: 'Project Leader', members: ['Yongsheng Zhao'] },
-    {
-      role: 'Core Developers',
-      members: [
-        'Lei Zhao',
-        'Gongxin Yao',
-        'Jiayin Deng',
-        'Xuanzhang Wen',
-        'Han Gao',
-        'Zean Liu',
-        'Wen Li',
-        'Taotao Tian',
-      ],
-    },
-    { role: 'Test Engineers', members: ['Yingying Yan'] },
-    { role: 'Product Managers', members: ['Jiahui Zheng', 'Chaohua Lin', 'Yafei Peng'] },
-  ],
   contactNote: 'Partnership inquiries, technical proposals, and community contributions are welcome.',
 };
