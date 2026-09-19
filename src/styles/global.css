@@ -49,6 +49,19 @@
   .hairline {
     @apply border-ink-border;
   }
+  /* Semantic text colors — theme-aware, contrast-checked on white */
+  .text-fg {
+    color: rgb(var(--fg));
+  }
+  .text-muted {
+    color: rgb(var(--muted));
+  }
+  .text-faint {
+    color: rgb(var(--faint));
+  }
+  .text-faint-2 {
+    color: rgb(var(--faint-2));
+  }
 }
 
 /* Scroll reveal (progressive enhancement, no external dep) */
@@ -70,26 +83,36 @@
 }
 
 /* ============================================================
-   Theme tokens — light is the default, dark is opt-in via .dark
+   Theme tokens — light (white) is the default; dark is opt-in via .dark
+   Gray scale tuned for WCAG-AA contrast on a WHITE surface:
+     --fg    : primary text     (slate-900, ~15.8:1 on white)
+     --muted : secondary text   (slate-600, ~7.0:1  on white)
+     --faint : tertiary/caption (slate-500, ~4.6:1  on white, AA for normal text)
    ============================================================ */
 :root {
-  --ink: 255 255 255; /* page background (light) */
-  --ink-card: 248 250 252; /* slate-50 card background (light) */
-  --ink-border: 226 232 240; /* slate-200 (light) */
-  --fg: 15 23 42; /* slate-900 primary text (light) */
-  --muted: 71 85 105; /* slate-600 secondary text (light) */
-  --brand-light: 37 99 235; /* blue-600 (light) */
+  --ink: 255 255 255; /* page background (white) */
+  --ink-card: 248 250 252; /* slate-50 card surface */
+  --ink-border: 226 232 240; /* slate-200 */
+  --fg: 15 23 42; /* slate-900 primary text */
+  --muted: 71 85 105; /* slate-600 secondary text */
+  --faint: 100 116 139; /* slate-500 tertiary text */
+  --faint-2: 126 138 156; /* #7e8a9c — lighter tertiary gray for layered "high-end gray" */
+  --brand-light: 37 99 235; /* blue-600 */
 }
 .dark {
   --ink: 17 19 24;
   --ink-card: 27 30 39;
   --ink-border: 38 42 54;
-  --fg: 226 232 240;
-  --muted: 148 163 184;
+  --fg: 226 232 240; /* slate-200 */
+  --muted: 148 163 184; /* slate-400 */
+  --faint: 148 163 184; /* slate-400 */
+  --faint-2: 203 213 225; /* slate-300 — lighter on dark */
   --brand-light: 77 148 255;
 }
 
-/* Light mode: dark text on a white / near-white surface */
+/* Light mode: dark text on a white / near-white surface.
+   Raw slate utilities are remapped to the contrast-checked tokens so any
+   leftover usages stay legible on white. */
 html:not(.dark) .text-white:not(.btn-primary) {
   color: rgb(var(--fg));
 }
@@ -101,10 +124,12 @@ html:not(.dark) .text-slate-900 {
   color: rgb(var(--fg));
 }
 html:not(.dark) .text-slate-300,
-html:not(.dark) .text-slate-400,
+html:not(.dark) .text-slate-400 {
+  color: rgb(var(--muted));
+}
 html:not(.dark) .text-slate-500,
 html:not(.dark) .text-slate-600 {
-  color: rgb(var(--muted));
+  color: rgb(var(--faint));
 }
 html:not(.dark) .text-brand-light {
   color: rgb(var(--brand-light));

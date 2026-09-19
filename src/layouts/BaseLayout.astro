@@ -8,7 +8,7 @@ const ogImage = `${site.site ?? 'https://cmcc-tao.github.io'}${BASE}og.png`;
 ---
 
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -21,13 +21,13 @@ const ogImage = `${site.site ?? 'https://cmcc-tao.github.io'}${BASE}og.png`;
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href={`${BASE}favicon.svg`} />
     <script is:inline>
-      // Respect saved theme; default to dark.
+      // Respect saved theme; default to light (white).
       const t = localStorage.getItem('theme');
-      const dark = t ? t === 'dark' : true;
+      const dark = t ? t === 'dark' : false;
       document.documentElement.classList.toggle('dark', dark);
     </script>
   </head>
-  <body class="bg-white text-slate-800 dark:bg-ink dark:text-slate-200">
+  <body class="bg-white text-slate-900 dark:bg-ink dark:text-slate-200">
     <main>
       <slot />
     </main>

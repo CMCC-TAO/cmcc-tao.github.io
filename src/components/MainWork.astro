@@ -7,7 +7,7 @@ import { boards, paper, site } from '../data/site';
     <div class="reveal mb-12 max-w-2xl">
       <span class="eyebrow">Main Work</span>
       <h2 class="text-3xl font-bold sm:text-4xl">Infrastructure · Model · Benchmark</h2>
-      <p class="mt-3 text-slate-400">
+      <p class="mt-3 text-muted">
         Three pillars of the TAO ecosystem — from deployment infrastructure to embodied models and evaluation.
       </p>
     </div>
@@ -21,7 +21,7 @@ import { boards, paper, site } from '../data/site';
               <h3 class="text-2xl font-bold sm:text-3xl">{board.title}</h3>
             </div>
           </div>
-          <p class="reveal mb-6 max-w-3xl text-slate-400">{board.desc}</p>
+          <p class="reveal mb-6 max-w-3xl text-muted">{board.desc}</p>
 
           <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {board.items.map((p) => (
@@ -33,14 +33,14 @@ import { boards, paper, site } from '../data/site';
 
                 <h4 class="text-xl font-bold">{p.name}</h4>
                 <p class="mt-1 text-sm font-semibold text-brand-light">{p.tagline}</p>
-                <p class="mt-3 flex-1 text-sm text-slate-400">{p.desc}</p>
+                <p class="mt-3 flex-1 text-sm text-muted">{p.desc}</p>
 
                 {p.highlights && (
                   <div class="mt-4 grid grid-cols-2 gap-3 border-t border-ink-border pt-4">
                     {p.highlights.map((h) => (
                       <div>
                         <div class="stat text-2xl">{h.value}</div>
-                        <div class="text-xs text-slate-500">{h.label}</div>
+                        <div class="text-xs text-faint">{h.label}</div>
                       </div>
                     ))}
                   </div>
@@ -48,7 +48,7 @@ import { boards, paper, site } from '../data/site';
 
                 <div class="mt-4 flex flex-wrap gap-2">
                   {p.tags.map((tag) => (
-                    <span class="rounded-full border border-ink-border px-2.5 py-0.5 text-xs text-slate-400">
+                    <span class="rounded-full border border-ink-border px-2.5 py-0.5 text-xs text-muted">
                       {tag}
                     </span>
                   ))}
