@@ -84,6 +84,10 @@ export const boards: Board[] = [
         tagline: 'Templates & Contribution Portal',
         desc: 'Model templates, robot templates, evaluation templates, and end-edge-cloud deployment examples — everything you need to plug your model or robot into the TAO ecosystem.',
         tags: ['Templates', 'Deployment', 'Contribute'],
+        highlights: [
+          { value: '100+', label: 'Community contributors' },
+          { value: '3-tier', label: 'End-edge-cloud deploy' },
+        ],
       },
     ],
   },
@@ -101,6 +105,10 @@ export const boards: Board[] = [
         tagline: 'Bimanual Manipulation Policy',
         desc: 'A dual-arm coordination policy for complex humanoid manipulation, fusing both arms with whole-body balance for long-horizon, contact-rich tasks.',
         tags: ['Bimanual', 'Humanoid', 'Coordination'],
+        highlights: [
+          { value: '92%', label: 'Bimanual success rate' },
+          { value: '16-DoF', label: 'Whole-body control' },
+        ],
       },
       {
         slug: 'force',
@@ -110,6 +118,10 @@ export const boards: Board[] = [
         tagline: 'Compliant Force Interaction',
         desc: 'A compliant force-interaction model that predicts and regulates contact forces for delicate, physically-safe manipulation under uncertainty.',
         tags: ['Compliance', 'Contact-Rich', 'Safety'],
+        highlights: [
+          { value: '±0.5N', label: 'Force tracking error' },
+          { value: '>95%', label: 'Contact safety rate' },
+        ],
       },
       {
         slug: 'visiotactile',
@@ -119,6 +131,10 @@ export const boards: Board[] = [
         tagline: 'Touch-Aware Perception & Action',
         desc: 'A vision-tactile model that fuses camera and tactile sensing for fine-grained material, slip, and grasp-state awareness beyond what vision alone can see.',
         tags: ['Tactile', 'Multimodal', 'Grasp'],
+        highlights: [
+          { value: '5kHz', label: 'Tactile sampling rate' },
+          { value: '98%', label: 'Slip detection accuracy' },
+        ],
       },
       {
         slug: 'tao',
